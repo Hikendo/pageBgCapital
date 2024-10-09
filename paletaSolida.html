@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>B&G Capital</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Definimos los colores personalizados */
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        azulReal: '#2563EB',
+                        grisMedio: '#6B7280',
+                        beigeClaro: '#F5F5DC',
+                        blanco: '#FFFFFF',
+                        bronce: '#CD7F32',
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-beigeClaro text-grisMedio">
+
+    <!-- Navbar -->
+    <header class="bg-azulReal text-blanco p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">B&G Capital</h1>
+            <nav>
+                <ul class="flex space-x-4">
+                    <li><a href="#" class="hover:text-bronce">Inicio</a></li>
+                    <li><a href="#" class="hover:text-bronce">Nosotros</a></li>
+                    <li><a href="#" class="hover:text-bronce">Servicios</a></li>
+                    <li><a href="#" class="hover:text-bronce">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-blanco py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold text-azulReal mb-4">Su confianza, nuestro mayor activo</h2>
+            <p class="text-lg text-grisMedio mb-8">
+                B&G Capital combina experiencia y análisis avanzado para ofrecer servicios de banca privada e inversión
+                personalizada.
+            </p>
+            <a href="#servicios" class="bg-bronce text-blanco py-2 px-4 rounded">Descubre más</a>
+        </div>
+    </section>
+
+    <!-- Sección de Servicios -->
+    <section id="servicios" class="py-16 bg-beigeClaro">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold text-azulReal mb-4">Nuestros Servicios</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-6 bg-blanco shadow-lg">
+                    <h3 class="text-xl font-semibold text-bronce mb-2">Gestión de Inversiones</h3>
+                    <p class="text-grisMedio">
+                        Estrategias personalizadas en mercados de capitales y derivados financieros.
+                    </p>
+                </div>
+                <div class="p-6 bg-blanco shadow-lg">
+                    <h3 class="text-xl font-semibold text-bronce mb-2">Consultoría Financiera</h3>
+                    <p class="text-grisMedio">
+                        Asesoría y consultoría en inversión, riesgos y sistemas financieros.
+                    </p>
+                </div>
+                <div class="p-6 bg-blanco shadow-lg">
+                    <h3 class="text-xl font-semibold text-bronce mb-2">Desarrollo de Proyectos</h3>
+                    <p class="text-grisMedio">
+                        Innovación y desarrollo en proyectos de inversión y tecnología.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="bg-azulReal text-blanco py-16">
+        <div class="container mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-4">Contáctanos</h2>
+            <p class="mb-8">
+                En B&G Capital, estamos aquí para brindarte asesoría personalizada. Ponte en contacto con nosotros.
+            </p>
+            <a href="mailto:contacto@business-and-growth.com" class="bg-bronce text-blanco py-2 px-4 rounded">Envíanos
+                un correo</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-grisMedio text-blanco py-4">
+        <div class="container mx-auto text-center">
+            <p>© 2024 B&G Capital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
