@@ -1,0 +1,23 @@
+<div class="relative h-screen overflow-hidden bg-cover bg-center"
+  style="background-image: url('assets/img/banner.jpg'); background-attachment: fixed;">
+  <div class="animacion-grafica">
+    <div class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center">
+      <h1 class="text-6xl text-white font-bold backdrop-blur-md animate-pulse p-10">
+        Bienvenido a B&G Capital
+      </h1>
+
+      <p class="text-3xl text-white mt-4 backdrop-blur-md p-5">
+        <span class="letter block" *ngFor="let text of texts; let i = index"
+          [ngClass]="{ 'hidden': i !== currentIndex }">
+          {{ text }}
+        </span>
+      </p>
+
+      <div class="fireworks-container grid grid-cols-12">
+        <!-- Barras generadas dinámicamente -->
+        <div *ngFor="let bar of bars" class="bar opacity-25" [ngStyle]="{ left: bar.left, height: bar.height }"></div>
+      </div>
+
+    </div>
+  </div>
+</div>

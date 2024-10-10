@@ -1,0 +1,91 @@
+@function random-scale() {
+  $values: (0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 1.2, 1.3, 1.4, 1.5);
+  $random-value: nth($values, random(length($values)));
+  @return $random-value;
+}
+
+@keyframes growShrink {
+  0% {
+    transform: scaleY(random-scale()); /* valor aleatorio entre .1 y 1.5 */
+  }
+  20% {
+    transform: scaleY(random-scale());
+  }
+  40% {
+    transform: scaleY(random-scale());
+  }
+  60% {
+    transform: scaleY(random-scale());
+  }
+  80% {
+    transform: scaleY(random-scale());
+  }
+  100% {
+    transform: scaleY(random-scale());
+  }
+}
+
+@function randomColor() {
+  // Generar valores RGB aleatorios
+  $r: random(256);
+  $g: random(256);
+  $b: random(256);
+
+  // Retornar el color en formato rgb
+  @return rgb($r, $g, $b);
+}
+
+
+.bar {
+  position: absolute; /* Para posicionar las barras */
+  transform-origin: bottom; /* Crecimiento desde abajo */
+  width: 5%; /* Ajusta este valor según el ancho de las barras */
+  background: linear-gradient(randomColor(), randomColor()); /* Degradado aleatorio */
+  animation: growShrink 15s infinite; /* Animación de crecimiento y decrecimiento */
+  animation-timing-function: ease-in-out; /* Función de tiempo para animación */
+  transform: scaleY(0.1); /* Asegura que empiece desde el fondo */
+
+  /* Crear bordes izquierdo y derecho */
+
+
+  /* Pseudo-elemento para el punto amarillo */
+  &::before {
+    content: ''; /* Necesario para el pseudo-elemento */
+    position: absolute;
+    top: -5px; /* Ajustar la posición del punto */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translateX(-50%); /* Ajustar para centrar el punto */
+    width: 25px; /* Ancho del punto */
+    height: 25px; /* Alto del punto */
+    background: linear-gradient(randomColor(), randomColor()); /* Degradado aleatorio */
+    border-radius: 50%; /* Hacer que sea un círculo */
+  }
+}
+
+
+
+
+
+/* Agregar un retraso aleatorio a cada barra */
+.bar:nth-child(1) { animation-delay: 0s; }
+.bar:nth-child(2) { animation-delay: 0.1s; }
+.bar:nth-child(3) { animation-delay: 2.1s; }
+.bar:nth-child(4) { animation-delay: 0.3s; }
+.bar:nth-child(5) { animation-delay: 1.4s; }
+.bar:nth-child(6) { animation-delay: 6.5s; }
+.bar:nth-child(7) { animation-delay: 0.6s; }
+.bar:nth-child(8) { animation-delay: 3.7s; }
+.bar:nth-child(9) { animation-delay: 0.8s; }
+.bar:nth-child(10) { animation-delay: 4.9s; }
+.bar:nth-child(11) { animation-delay: 1s; }
+.bar:nth-child(12) { animation-delay: 1.1s; }
+
+.fireworks-container {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 250px; /* Ajusta la altura según sea necesario */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); /* 12 columnas para las barras */
+  gap: 0; /* Sin espacio entre barras */
+}
