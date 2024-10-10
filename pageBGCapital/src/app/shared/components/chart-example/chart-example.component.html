@@ -1,3 +1,10 @@
 <div style="max-width: 600px; margin: auto;">
+  <select (change)="changeChartType($event)">
+    <option value="donut">Donut</option>
+    <option value="pie">Pie</option>
+    <option value="radialBar">Radial Bar</option>
+    <option value="polarArea">Polar Area</option>
+  </select>
+
   <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [title]="chartOptions.title"></apx-chart>
 </div>
