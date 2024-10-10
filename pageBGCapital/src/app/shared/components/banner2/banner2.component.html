@@ -6,11 +6,12 @@
         Bienvenido a B&G Capital
       </h1>
 
-      <p class="text-3xl text-white mt-4 backdrop-blur-md p-5">
+      <p class="text-4xl text-white mt-4 backdrop-blur-md p-5 w-96">
         <span class="letter block" *ngFor="let text of texts; let i = index"
           [ngClass]="{ 'hidden': i !== currentIndex }">
           {{ text }}
         </span>
+
       </p>
 
       <div class="fireworks-container grid grid-cols-12">

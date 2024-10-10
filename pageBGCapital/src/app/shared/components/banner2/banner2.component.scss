@@ -89,3 +89,46 @@
   grid-template-columns: repeat(12, 1fr); /* 12 columnas para las barras */
   gap: 0; /* Sin espacio entre barras */
 }
+
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fall {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.letter {
+  display: inline-block; /* Permitir animaciones */
+  overflow: hidden; /* Esconder el texto que se está escribiendo */
+  white-space: nowrap; /* Mantener el texto en una sola línea */
+  border-right: 2px solid; /* Cursor tipo "escribiendo" */
+  animation: typing 1s; /* Efecto de escritura y caída */
+
+  &.hidden {
+    animation: disappear 5s forwards; /* Animación de desaparición */
+  }
+}
+
