@@ -1,0 +1,62 @@
+<footer id="footer-section" class="bg-black text-white py-10">
+  <div class="container mx-auto px-4">
+    <div class="content">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div>
+          <p>B&G Capital es una Sociedad Anónima Promotora de Inversión de C.V.</p>
+          <h5 class="text-lg font-semibold mt-4">Contacto</h5>
+          <p>
+            <a href="mailto:contacto.capital@business-and-growth.com" class="text-white">
+              <i class="fas fa-envelope"></i> contacto.capital&#64;business-and-growth.com
+            </a>
+          </p>
+          <p>
+            <a href="tel:+5562361810" class="text-white">
+              <i class="fas fa-phone-alt"></i> 55 6236 1810
+            </a>
+          </p>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold mt-4">Redes Sociales</h5>
+          <div class="social-feed mt-4">
+            <div class="feed-line">
+              <p><i class="fab fa-facebook"></i> / Business & Growth</p>
+            </div>
+            <div class="feed-line">
+              <p><i class="fab fa-linkedin"></i> / B&G Capital</p>
+            </div>
+            <div class="feed-line">
+              <p><i class="fab fa-twitter"></i> / &#64;talentobusiness</p>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-lg font-semibold mt-4">Suscríbete a nuestro newsletter</h5>
+          <a href="#header" class="js-scroll-trigger">
+            <i class="fas fa-arrow-up fa-beat text-white float-right"></i>
+          </a>
+          <form action="backend/i-contacto.php" method="POST" class="mt-4">
+            <label for="email">Email:</label>
+            <input class="form-control bg-gray-700 text-white border border-gray-500 rounded p-2 mt-1 w-full"
+              type="email" id="email" name="email" required>
+            <br>
+            <label for="nombremail">Nombre:</label>
+            <input class="form-control bg-gray-700 text-white border border-gray-500 rounded p-2 mt-1 w-full"
+              type="text" id="nombremail" name="nombremail" required>
+            <br>
+            <button id="btnenviar"
+              class="btn btn-primary bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">Suscríbirse</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr class="my-6 border-gray-600" />
+    <div class="copyright text-center text-sm">
+      Copyright &#xA9;
+      <script>
+        document.write(new Date().getFullYear())
+
+      </script> B&G Capital SAPI de C.V.
+    </div>
+  </div>
+</footer>

@@ -24,7 +24,7 @@ export class BannerComponent2 {
 
     setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.texts.length;
-    }, 15000);
+    }, 3000);
   }
 
   generateBars(numberOfBars: number): void {

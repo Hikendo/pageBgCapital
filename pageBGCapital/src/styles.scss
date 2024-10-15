@@ -1,3 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.animacion-grafica {
+  width: 100%;
+  position: relative;
+  background-size: 300% 300%;
+  /* Gradiente de fondo con los colores especificados */
+  background-image: linear-gradient(-45deg,
+  rgba(21, 56, 95, 0.63) 0%,    /* #15385fa1 */
+  rgba(21, 56, 95, 0.63) 25%,   /* #15385fa1, azul más duradero */
+  rgba(55, 81, 120, 0.563) 35%, /* #375178, más tiempo para el azul */
+  rgba(54, 64, 86, 0.701) 45%,  /* #fab760 */
+  rgba(255, 255, 255, 0.668) 50%,  /* white */
+  rgba(55, 81, 120, 0.563) 65%, /* #375178, más azul */
+  rgba(21, 56, 95, 0.63) 80%,   /* #15385fa1 */
+  rgba(255, 255, 255, 0.668) 90%,  /* white */
+  rgba(54, 64, 86, 0.701) 100%  /* #fab760 */
+);
+
+  -webkit-animation: AnimateBG 5s ease infinite;
+  animation: AnimateBG 5s ease infinite;
+}
+
+@-webkit-keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Animación para texto que aparece letra por letra */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

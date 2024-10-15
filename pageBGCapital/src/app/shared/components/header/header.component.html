@@ -1,21 +1,51 @@
-<header class="bg-gray-800 text-white">
-  <div class="container mx-auto flex justify-between items-center py-4">
-    <!-- Logo -->
-    <div class="text-2xl font-bold">
-      <img src="assets/logo.png" alt="Logo" class="h-8 w-auto inline-block mr-2">
-      MiEmpresa
-    </div>
-
-    <!-- Navegación -->
-    <nav class="hidden md:flex space-x-6">
-      <a href="#" class="hover:text-gray-400">INICIO</a>
-      <a href="#" class="hover:text-gray-400">EQUIPO</a>
-      <a href="#" class="hover:text-gray-400">REPORTES</a>
-    </nav>
-
-    <!-- Botón Ingresar -->
-    <a href="#" class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">
-      INGRESAR
-    </a>
+<section class="fixed-top bg-black bg-opacity-75">
+  <div class="container mx-auto py-1 border-b border-gray-700">
+    <p class="text-white text-center text-sm">
+      <a href="https://business-and-growth.com/" target="_blank" class="bg-dark text-white px-2 rounded">
+        B&G
+      </a>
+      &nbsp; | &nbsp;
+    </p>
   </div>
-</header>
+
+  <!-- Navegación -->
+  <nav class="bg-white shadow">
+    <div class="container mx-auto flex items-center justify-between p-4">
+      <a class="navbar-brand" href="#page-top">
+        <img src="img/logo-principal-b&g-capital.svg" width="250px" alt="B&G Capital">
+      </a>
+      <button class="navbar-toggler text-gray-700 focus:outline-none" type="button" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse">
+        <ul class="flex space-x-4">
+          <li class="nav-item">
+            <a class="nav-link text-gray-700 uppercase text-xs" href="#nosotros">Nosotros</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-gray-700 uppercase text-xs" href="#servicios">Servicios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-gray-700 uppercase text-xs" href="equipo.html">Equipo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link font-bold text-gray-700 uppercase text-xs"
+              href="https://capital.business-and-growth.com/login-page" target="_blank">
+              <i class="fas fa-user"></i> Ingresar
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-gray-700 uppercase text-xs"
+              href="https://www.blog.business-and-growth.com/index.php/reportes/" target="_blank">Reportes</a>
+          </li>
+        </ul>
+        <div class="hidden md:block">
+          <a class="nav-link text-gray-700" href="#footer-section" target="_blank">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</section>

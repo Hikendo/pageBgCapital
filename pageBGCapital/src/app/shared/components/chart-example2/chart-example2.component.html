@@ -1,0 +1,18 @@
+<div style="max-width: 600px; margin: auto;">
+  <select (change)="changeChartType($event)">
+    <option value="line">Línea</option>
+    <option value="bar">Barra</option>
+    <option value="column">Columna</option>
+    <option value="area">Área</option>
+    <option value="candlestick">Candlestick</option>
+    <option value="boxPlot">BoxPlot</option>
+    <option value="heatmap">Mapa de Calor</option>
+    <option value="treemap">Treemap</option>
+    <option value="radialBar">Radial Bar</option>
+    <option value="polarArea">Polar Area</option>
+  </select>
+
+  <div *ngFor="let chartOption of chartOptions">
+    <apx-chart [series]="chartOption.series" [chart]="chartOption.chart" [title]="chartOption.title"></apx-chart>
+  </div>
+</div>

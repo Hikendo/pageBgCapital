@@ -6,7 +6,7 @@
   justify-content: center;
   background-size: 300% 300%;
   /* Cambiando el color a casi transparente con una opacidad de 0.5 */
-  background-image: linear-gradient(-45deg, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(255, 53, 127, 0.5) 51%, rgba(255, 53, 127, 0.5) 100%);
+  background-image: linear-gradient(-45deg, rgba(255, 255, 0, 0.5) 0%, rgba(255, 255, 0, 0.5) 25%, rgba(53, 54, 57, 0.653) 51%, rgba(255, 53, 127, 0.5) 100%);
   -webkit-animation: AnimateBG 20s ease infinite;
           animation: AnimateBG 20s ease infinite;
 }
@@ -46,13 +46,13 @@
 }
 
 .animate-fade-in {
-  animation: fade-in 0.5s ease-in forwards;
+  animation: fade-in 1.5s ease-in forwards;
 }
 
 .letter {
   display: inline-block;
   opacity: 0;
-  animation: fade-in 0.5s ease forwards;
+  animation: fade-in 1.5s ease forwards;
   animation-delay: var(--delay);
 }
 
@@ -61,5 +61,5 @@
 }
 
 .letter {
-  transition: opacity 0.5s ease-in-out;
+  transition: opacity 1.5s ease-in-out;
 }
