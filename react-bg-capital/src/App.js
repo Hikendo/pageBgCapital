@@ -1,23 +1,26 @@
+// src/App.js
 import logo from './logo.svg';
 import './App.css';
+import Charts from './components/Charts/Charts.tsx';
 
 function App() {
+  const chartData = {
+    categories: ['January', 'February', 'March', 'April', 'May'],
+    series: [
+      {
+        name: 'Sales',
+        data: [30, 40, 35, 50, 49],
+      },
+    ],
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header >
+       
       </header>
+      {/* Pasar datos al componente Charts */}
+      <Charts data={chartData} />
     </div>
   );
 }
