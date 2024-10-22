@@ -133,3 +133,60 @@ export class ChartExample2Component implements OnInit, OnDestroy {
     });
   }
 }
+
+
+//Option Grafica - Descomentar
+
+// var options = {
+//   series: [{
+//       name: "Price",
+//       data: dataG.map((y) => y.y)
+//   }],
+//   chart: {
+//       height: 200,
+//       width: '100%',
+//       type: 'area',
+//       zoom: {
+//           type: 'x',
+//           enabled: true,
+//           autoScaleYaxis: true
+//       },
+//       toolbar: {
+//           autoSelected: 'zoom'
+//       }
+//   },
+//   dataLabels: {
+//       enabled: false
+//   },
+//   stroke: {
+//       curve: 'straight'
+//   },
+//   fill: {
+//       type: 'gradient',
+//       gradient: {
+//           shadeIntensity: 1,
+//           inverseColors: false,
+//           opacityFrom: 0.5,
+//           opacityTo: 0,
+//           stops: [0, 90, 100]
+//       },
+//   },
+//   grid: {
+//       row: {
+//           colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+//           opacity: 0.5
+//       },
+//   },
+//   xaxis: {
+//       labels: {
+//           show: false,
+//       },
+//       type: 'date',
+//       categories: dataG.map((x) => x.x),
+//   },
+//   yaxis: {
+//       labels: {
+//           show: false,
+//       },
+//   },
+// };

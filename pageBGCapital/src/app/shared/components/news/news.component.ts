@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Article, NewsService } from '../../../services/news.service';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-news',
   standalone: true,
-  imports: [NgIf, NgFor, NgClass],
+  imports: [NgIf, NgFor, NgClass, RouterLink, RouterLinkActive],
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
 })
