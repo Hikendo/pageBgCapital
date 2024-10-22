@@ -1,22 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import '../node_modules/swiper/swiper-bundle.css';
+
+
 .animacion-grafica {
   width: 100%;
   position: relative;
   background-size: 300% 300%;
-  /* Gradiente de fondo con los colores especificados */
   background-image: linear-gradient(-45deg,
-  rgba(21, 56, 95, 0.63) 0%,    /* #15385fa1 */
-  rgba(21, 56, 95, 0.63) 25%,   /* #15385fa1, azul más duradero */
-  rgba(55, 81, 120, 0.563) 35%, /* #375178, más tiempo para el azul */
-  rgba(54, 64, 86, 0.701) 45%,  /* #fab760 */
-  rgba(255, 255, 255, 0.668) 50%,  /* white */
-  rgba(55, 81, 120, 0.563) 65%, /* #375178, más azul */
-  rgba(21, 56, 95, 0.63) 80%,   /* #15385fa1 */
-  rgba(255, 255, 255, 0.668) 90%,  /* white */
-  rgba(54, 64, 86, 0.701) 100%  /* #fab760 */
-);
+    rgba(21, 56, 95, 0.63) 0%,
+    rgba(21, 56, 95, 0.63) 25%,
+    rgba(55, 81, 120, 0.563) 35%,
+    rgba(54, 64, 86, 0.701) 45%,
+    rgba(255, 255, 255, 0.668) 50%,
+    rgba(55, 81, 120, 0.563) 65%,
+    rgba(21, 56, 95, 0.63) 80%,
+    rgba(255, 255, 255, 0.668) 90%,
+    rgba(54, 64, 86, 0.701) 100%
+  );
 
   -webkit-animation: AnimateBG 5s ease infinite;
   animation: AnimateBG 5s ease infinite;
@@ -53,5 +55,30 @@
   }
   100% {
     opacity: 1;
+  }
+}
+
+/* Estilos para los cubos */
+.cubo {
+  width: 50px; /* Ajusta el tamaño del cubo según lo necesites */
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.5); /* Cubo transparente */
+  position: absolute;
+  bottom: -50px; /* Comienza desde abajo del contenedor */
+  animation: desplazar 3s linear infinite;
+  opacity: 0; /* Comienza oculto */
+}
+
+@keyframes desplazar {
+  0% {
+    bottom: -50px; /* Empieza fuera de la pantalla */
+    opacity: 0; /* Invisible al inicio */
+  }
+  50% {
+    opacity: 1; /* Hace visible el cubo */
+  }
+  100% {
+    bottom: 100%; /* Se desplaza hacia arriba fuera de la pantalla */
+    opacity: 0; /* Se vuelve invisible al salir */
   }
 }

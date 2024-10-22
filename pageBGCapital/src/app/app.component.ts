@@ -10,13 +10,14 @@ import { ObjetoSocialComponent } from "./shared/components/objeto-social/objeto-
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ChartExample2Component } from "./shared/components/chart-example2/chart-example2.component";
 import { NewsComponent } from "./shared/components/news/news.component";
+import { CarruselComponent } from "./shared/components/carrusel/carrusel.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, ChartExampleComponent, BannerComponent,
     BannerComponent2, AboutComponent, ServiciosComponent, ObjetoSocialComponent, FooterComponent,
-    ChartExample2Component, NewsComponent],
+    ChartExample2Component, NewsComponent, CarruselComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
