@@ -9,15 +9,16 @@ import { ServiciosComponent } from "./shared/components/servicios/servicios.comp
 import { ObjetoSocialComponent } from "./shared/components/objeto-social/objeto-social.component";
 import { FooterComponent } from "./shared/components/footer/footer.component";
 import { ChartExample2Component } from "./shared/components/chart-example2/chart-example2.component";
+import { NewsComponent } from "./shared/components/news/news.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, HeaderComponent, ChartExampleComponent, BannerComponent,
-     BannerComponent2, AboutComponent, ServiciosComponent, ObjetoSocialComponent, FooterComponent,
-     ChartExample2Component],
+    BannerComponent2, AboutComponent, ServiciosComponent, ObjetoSocialComponent, FooterComponent,
+    ChartExample2Component, NewsComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'pageBGCapital';

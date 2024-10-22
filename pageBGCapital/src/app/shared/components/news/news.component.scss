@@ -1,0 +1,12 @@
+.carrusel {
+  display: flex;
+  overflow: hidden; // Asegúrate de que no se vea el contenido que sale del contenedor
+}
+
+.card {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card.scale-110 {
+  transform: scale(1.1); // Hace que la tarjeta central sea más grande
+}

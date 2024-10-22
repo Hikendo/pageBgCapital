@@ -30,14 +30,14 @@ export class BannerComponent2 {
   generateBars(numberOfBars: number): void {
     const usedPositions = new Set<number>(); // Usar un conjunto para evitar duplicados
     this.bars = []; // Asegúrate de vaciar las barras antes de generar nuevas
-
+    let initial=10;
     while (usedPositions.size < numberOfBars) {
       const position = Math.floor(Math.random() * numberOfBars); // Genera una posición aleatoria
       usedPositions.add(position); // Añade la posición al conjunto
     }
 
     usedPositions.forEach(position => {
-      const randomHeight =  400; // Altura aleatoria entre 10 y 400
+      const randomHeight =  500; // Altura aleatoria entre 10 y 400
 
       this.bars.push({
         left: `${position * (100 / numberOfBars)}%`, // Distribución horizontal
