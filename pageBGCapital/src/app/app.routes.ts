@@ -9,6 +9,7 @@ export const routes: Routes = [
 
   { path: 'charts1', loadComponent: () => import('./shared/components/chart-example/chart-example.component').then(c => c.ChartExampleComponent) },
   { path: 'charts2', loadComponent: () => import('./shared/components/chart-example2/chart-example2.component').then(c => c.ChartExample2Component) },
+  { path: 'rendimiento', loadComponent: () => import('./shared/components/rendimiento-grafica/rendimiento-grafica.component').then(c => c.RendimientoGraficaComponent) },
 
 
 ];

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApexChart, ApexXAxis, ApexYAxis, ApexDataLabels, ApexStroke, ApexTitleSubtitle, NgApexchartsModule } from 'ng-apexcharts';
 import { Rendimiento, RendimientosService } from '../../../services/rendimientos.service';
-import { RendimientoAnual, RendimientosAnualesService } from '../../../services/rendimientos-anuales.service';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { NgFor } from '@angular/common';
 
 export type ChartOptions = {
   series: any[];
@@ -15,11 +15,11 @@ export type ChartOptions = {
 };
 
 @Component({
-  standalone:true,
-  imports:[NgApexchartsModule, ReactiveFormsModule],
+  standalone: true,
+  imports: [NgApexchartsModule, ReactiveFormsModule, NgFor],
   selector: 'app-rendimiento-grafica',
   templateUrl: './rendimiento-grafica.component.html',
-  styleUrls: ['./rendimiento-grafica.component.css']
+  styleUrls: ['./rendimiento-grafica.component.scss']
 })
 export class RendimientoGraficaComponent implements OnInit {
 
@@ -29,9 +29,9 @@ export class RendimientoGraficaComponent implements OnInit {
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private rendimientosService: RendimientosService) {
-    // Inicializar el FormGroup en el constructor
+    // Inicializar el FormGroup con FormArray para múltiples series
     this.form = this.fb.group({
-      serie: ['B'], // Valor inicial "B"
+      serie: this.fb.array([this.fb.control('B')]), // Inicializamos con la serie "B"
       tipoRendimiento: ['rendimiento_anual'] // Valor inicial "rendimiento_anual"
     });
   }
@@ -49,39 +49,78 @@ export class RendimientoGraficaComponent implements OnInit {
     });
   }
 
-  // Método para actualizar la gráfica
+  // Método para obtener el FormArray de series
+  get serieArray(): FormArray {
+    return this.form.get('serie') as FormArray;
+  }
+
+  // Método para actualizar la gráfica con múltiples series seleccionadas
   updateChart(): void {
-    const serieSeleccionada = this.form.get('serie')?.value;
-    const tipoRendimiento = this.form.get('tipoRendimiento')?.value as keyof Rendimiento;  // Aseguramos que es una clave válida
+    const seriesSeleccionadas = this.serieArray.value; // Obtener las series seleccionadas
+    const tipoRendimiento = this.form.get('tipoRendimiento')?.value as keyof Rendimiento;
 
-    const seriesFiltrada = this.rendimientos.filter(r => r.serie === serieSeleccionada);
+    const seriesData = seriesSeleccionadas.map((serie: string) => {
+      const seriesFiltrada = this.rendimientos.filter(r => r.serie === serie);
+      return {
+        name: this.getRendimientoLabel(tipoRendimiento) + ` (${serie})`,
+        data: seriesFiltrada.map(r => Number(r[tipoRendimiento]))
+      };
+    });
 
+    // Configuración de la gráfica con los estilos
     this.chartOptions = {
-      series: [
-        {
-          name: this.getRendimientoLabel(tipoRendimiento),
-          data: seriesFiltrada.map(r => Number(r[tipoRendimiento])) // Esto ya es seguro
-        }
-      ],
+      series: seriesData,
       chart: {
-        type: 'line',
-        height: 350
+        type: 'area',
+        height: 200,  // Altura de la gráfica
+        width: '100%',  // Ancho completo
+        zoom: {
+          type: 'x',
+          enabled: true,
+          autoScaleYaxis: true  // Ajuste automático del eje Y al hacer zoom
+        },
+        toolbar: {
+          autoSelected: 'zoom'  // Herramienta de zoom seleccionada por defecto
+        }
       },
       dataLabels: {
-        enabled: false
+        enabled: false  // Desactivar las etiquetas de datos
       },
-      xaxis: {
-        categories: seriesFiltrada.map(r => r.fecha_registro),
-        labels: {
-          show: false
+      stroke: {
+        curve: 'straight'  // Línea recta para los gráficos de área
+      },
+      fill: {
+        type: 'gradient',  // Tipo de relleno gradiente
+        gradient: {
+          shadeIntensity: 1,
+          inverseColors: false,
+          opacityFrom: 0.5,
+          opacityTo: 0,
+          stops: [0, 90, 100]  // Puntos de parada del gradiente
         }
       },
-      title: {
-        text: `Rendimientos de la Serie ${serieSeleccionada}`
+      grid: {
+        row: {
+          colors: ['#f3f3f3', 'transparent'],  // Colores alternos en las filas
+          opacity: 0.5  // Opacidad de las líneas de la cuadrícula
+        }
+      },
+      xaxis: {
+        labels: {
+          show: false  // Ocultar etiquetas en el eje X
+        },
+        type: 'datetime',  // Tipo de eje X en formato de fecha
+        categories: this.rendimientos
+          .filter(r => seriesSeleccionadas.includes(r.serie))
+          .map(r => r.fecha_registro)
+      },
+      yaxis: {
+        labels: {
+          show: false  // Ocultar etiquetas en el eje Y
+        }
       }
     };
   }
-
 
 
   // Método auxiliar para obtener el nombre del tipo de rendimiento
@@ -97,4 +136,19 @@ export class RendimientoGraficaComponent implements OnInit {
         return '';
     }
   }
+
+  // Método para agregar o eliminar una serie del FormArray
+  onSerieChange(serie: string, event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const isChecked = input.checked;
+
+    if (isChecked) {
+      this.serieArray.push(new FormControl(serie));
+    } else {
+      const index = this.serieArray.controls.findIndex(x => x.value === serie);
+      this.serieArray.removeAt(index);
+    }
+  }
+
+
 }
