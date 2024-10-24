@@ -1,81 +1,71 @@
 <div class="flex flex-col items-center bg-gray-100 p-1 relative ">
-  <div class="bg-white container relative mb-6 p-1">
-    <div class="px-6 lg:px-8">
-      <div class="">
-        <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">News</h2>
-        <p class="mt-2 text-lg leading-8 text-gray-600">List - News forex</p>
-      </div>
+    <div class="bg-white container relative mb-6 p-1">
+        <div class="px-6 lg:px-8">
+            <div class="">
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">News</h2>
+                <p class="mt-2 text-lg leading-8 text-gray-600">List - News forex</p>
+            </div>
 
-      <div class="mt-10 grid grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0">
-        <!-- Iterar sobre los artículos -->
-        <ng-container *ngIf="articles.length > 0">
-          <!-- Mostrar el artículo actual -->
-          <!-- Artículo con el botón flotante -->
-          <article [ngClass]="{'article-transition': !transitioning, 'article-exit': transitioning}"
-            class="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative">
+            <div class="mt-10 grid grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0">
+                <!-- Iterar sobre los artículos -->
+                <ng-container *ngIf="articles.length > 0">
+                    <!-- Mostrar el artículo actual -->
+                    <!-- Artículo con el botón flotante -->
+                    <article [ngClass]="{'article-transition': !transitioning, 'article-exit': transitioning}" class="flex flex-col md:flex-row items-center bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 relative">
 
-            <!-- Imagen -->
-            <div class="fill-current md:h-full md:w-4/12 md:rounded-none md:rounded-s-lg">
-              <img [ngClass]="{'article-image': !transitioning, 'article-exit': transitioning}"
-                class="object-cover w-full h-auto rounded-t-lg" [src]="articles[currentIndex].image"
-                alt="Imagen de ejemplo">
-              <p class="article-date mt-4 text-xs text-gray-500 p-2">
-                {{ articles[currentIndex].date }}
-              </p>
-              <div class="flex items-center gap-x-4 text-xs mt-4 p-2">
-                <a href="#"
-                  class="article-tickers relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
+                        <!-- Imagen -->
+                        <div class="fill-current md:h-full md:w-4/12 md:rounded-none md:rounded-s-lg">
+                            <img [ngClass]="{'article-image': !transitioning, 'article-exit': transitioning}" class="object-cover w-full h-auto rounded-t-lg" [src]="articles[currentIndex].image" alt="Imagen de ejemplo">
+                            <p class="article-date mt-4 text-xs text-gray-500 p-2">
+                                {{ articles[currentIndex].date }}
+                            </p>
+                            <div class="flex items-center gap-x-4 text-xs mt-4 p-2">
+                                <a href="#" class="article-tickers relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">
                   {{ articles[currentIndex].tickers }}
                 </a>
-              </div>
-            </div>
+                            </div>
+                        </div>
 
-            <!-- Contenido del artículo -->
-            <div class="flex flex-col justify-between p-4 leading-normal w-full md:w-9/12">
-              <h3 [ngClass]="{'article-title': !transitioning, 'article-exit': transitioning}"
-                class="article-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                {{ articles[currentIndex].title }}
-              </h3>
-              <div [ngClass]="{'article-content': !transitioning, 'article-exit': transitioning}"
-                class="article-content mt-3 text-sm text-gray-600 dark:text-gray-400 text-justify"
-                [innerHTML]="articles[currentIndex].content">
-              </div>
-              <div class="mt-6">
-                <p class="article-author font-semibold text-gray-900 dark:text-white mb-4">
-                  Author: {{ articles[currentIndex].author }}
-                </p>
-                <a [href]="articles[currentIndex].link" target="_blank">
-                  <span
-                    class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
+                        <!-- Contenido del artículo -->
+                        <div class="flex flex-col justify-between p-4 leading-normal w-full md:w-9/12">
+                            <h3 [ngClass]="{'article-title': !transitioning, 'article-exit': transitioning}" class="article-title text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                {{ articles[currentIndex].title }}
+                            </h3>
+                            <div [ngClass]="{'article-content': !transitioning, 'article-exit': transitioning}" class="article-content mt-3 text-sm text-gray-600 dark:text-gray-400 text-justify" [innerHTML]="articles[currentIndex].content">
+                            </div>
+                            <div class="mt-6">
+                                <p class="article-author font-semibold text-gray-900 dark:text-white mb-4">
+                                    Author: {{ articles[currentIndex].author }}
+                                </p>
+                                <a [href]="articles[currentIndex].link" target="_blank">
+                                    <span class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 ring-1 ring-inset ring-red-600/10">
                     Leer más ..
                   </span>
-                </a>
-              </div>
-            </div>
+                                </a>
+                            </div>
+                        </div>
 
-            <!-- Botón flotante en la parte inferior central -->
-            <button (click)="togglePause()"
-              class="pause-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+                        <!-- Botón flotante en la parte inferior central -->
+                        <button (click)="togglePause()" class="pause-button bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
               <i class="fas" [ngClass]="isPaused ? 'fa-play' : 'fa-pause'"></i>
             </button>
 
-            <button (click)="previousArticle()" class="floating-button left-button">
+                        <button (click)="previousArticle()" class="floating-button left-button">
               <i class="fas fa-chevron-left"></i>
             </button>
-            <button (click)="nextArticle()" class="floating-button right-button">
+                        <button (click)="nextArticle()" class="floating-button right-button">
               <i class="fas fa-chevron-right"></i>
             </button>
-          </article>
+                    </article>
 
-        </ng-container>
-      </div>
+                </ng-container>
+            </div>
+        </div>
     </div>
-  </div>
 
 
 
-
-  <div *ngIf="articles.length === 0" class="text-gray-500 mt-4">
-    <p>Cargando artículos...</p>
-  </div>
+    <div *ngIf="articles.length === 0" class="text-gray-500 mt-4">
+        <p>Cargando artículos...</p>
+    </div>
 </div>
