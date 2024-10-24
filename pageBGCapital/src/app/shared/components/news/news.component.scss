@@ -1,12 +1,131 @@
-.carrusel {
-  display: flex;
-  overflow: hidden; // Asegúrate de que no se vea el contenido que sale del contenedor
+// Keyframes para animar la imagen, iniciando cubriendo todo el contenedor y luego ajustándose a su tamaño original
+@keyframes coverImage {
+  0% {
+    transform: scale(1.5); /* La imagen cubre todo el contenedor */
+  }
+  100% {
+    transform: scale(1); /* La imagen vuelve a su tamaño normal */
+  }
 }
 
-.card {
-  transition: transform 0.3s ease-in-out;
+
+
+// Keyframes para el fade-in del contenedor completo
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
-.card.scale-110 {
-  transform: scale(1.1); // Hace que la tarjeta central sea más grande
+// Keyframes para el fade-out del contenedor
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+// Aplicamos la animación de fade al contenedor del artículo
+.article-transition {
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+// Clase que se aplica al contenedor para el fade-out
+.article-exit {
+  opacity: 1;
+  animation: fadeOut 0.8s ease-in-out forwards;
+}
+
+// Animación de la imagen
+.article-image {
+  animation: coverImage 1s ease-in-out forwards;
+  transform-origin: center center;
+}
+
+// Animación de tipo máquina de escribir
+.article-content {
+  overflow: hidden; /* Ocultar el contenido hasta que se complete la animación */
+  white-space: normal; /* Permitir saltos de línea para textos largos */
+  width: 0; /* Comienza sin mostrar texto */
+  animation: typewriter 2s steps(30, end) 1s forwards; /* Aparece letra por letra */
+}
+
+// Keyframes para el efecto de "máquina de escribir"
+@keyframes typewriter {
+  from {
+    width: 0; /* El texto comienza con anchura 0 */
+  }
+  to {
+    width: 100%; /* El texto se muestra completamente */
+  }
+}
+
+// Ajustes del texto al finalizar la animación de tipo "typewriter"
+.article-title {
+  animation: typewriter 1.5s steps(40) 0.5s forwards;
+}
+
+.article-author,
+.article-date,
+.article-tickers {
+  animation: fadeIn 0.5s ease-in-out forwards;
+  animation-delay: 2.5s;
+}
+
+/* Botones flotantes para navegar por los artículos */
+.floating-button {
+  position: absolute;
+  top: 50%; /* Centra verticalmente */
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  cursor: pointer;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 0.3s ease-in-out; /* Transición suave */
+}
+
+.left-button {
+  left: 10px; /* Posiciona a la izquierda */
+}
+
+.right-button {
+  right: 10px; /* Posiciona a la derecha */
+}
+
+/* Mostrar los botones cuando se hace hover sobre el artículo */
+article:hover .floating-button {
+  opacity: 1; /* Mostrar cuando el cursor está sobre el artículo */
+}
+
+/* Efecto de hover para los botones */
+.floating-button:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.pause-button {
+  position: absolute; /* Posiciona el botón relativo al contenedor padre */
+  bottom: 10px; /* Alinea el botón en la parte inferior del article */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta la posición para que esté exactamente centrado */
+  z-index: 10; /* Asegura que el botón esté por encima de otros elementos */
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.pause-button:hover {
+  background-color: #e2e6ea;
 }
